@@ -55,21 +55,35 @@ class _BmiCalculatorState extends State<BmiCalculator> {
         child: Center(
           child: Column(
             children: [
-              Text(
-                '${_bmi.toStringAsFixed(2)} BMI',
-                style: const TextStyle(fontSize: 32),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Set border color
+                    width: 1, // Set border width
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      '${_bmi.toStringAsFixed(2)} BMI',
+                      style: const TextStyle(fontSize: 32),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        weightInput(),
+                        const SizedBox(width: 30),
+                        heightInput(),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    bmiCalculateButton(),
+                  ],
+                ),
               ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  weightInput(),
-                  const SizedBox(width: 30),
-                  heightInput(),
-                ],
-              ),
-              const SizedBox(height: 20),
-              bmiCalculateButton(),
               const SizedBox(height: 40),
               const Text(
                 'History',
@@ -87,7 +101,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
     return Column(
       children: [
         const Text(
-          'Weight',
+          'Weight (kg)',
           style: TextStyle(fontSize: 18),
         ),
         const SizedBox(height: 5),
@@ -111,7 +125,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
     return Column(
       children: [
         const Text(
-          'Height',
+          'Height (m)',
           style: TextStyle(fontSize: 18),
         ),
         const SizedBox(height: 5),
@@ -137,8 +151,6 @@ class _BmiCalculatorState extends State<BmiCalculator> {
           _sharedPreferences!.setDouble("bmi", _bmi.toDouble());
           _bmiHistory.add(_bmi.toStringAsFixed(2));
           _sharedPreferences!.setStringList("bmi_history", _bmiHistory);
-
-         
         });
       },
       child: const Text('Calculate'),
