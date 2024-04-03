@@ -29,8 +29,8 @@ To use this app, follow these simple steps:
 
 ## Screenshots
 
-<img src="screenshots/screenshot1.jpg" alt="BMI Calculator App Screenshot" width="400" height="300">
-<img src="screenshots/screenshot2.jpg" alt="BMI Calculator App Screenshot" width="400" height="300">
+<img src="screenshots/screenshot1.jpg" alt="BMI Calculator App Screenshot" width="200" height="400">
+<img src="screenshots/screenshot2.jpg" alt="BMI Calculator App Screenshot" width="200" height="400">
 
 
 ## Dependencies
